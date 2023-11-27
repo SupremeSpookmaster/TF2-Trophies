@@ -1,6 +1,6 @@
 <div align="center"> <h1>TF2 Trophies</h1>
 
-A very simple SourceMod plugin which hands out "Trophies" in the form of post-round chat messages, based on conditions which developers can configure and create. It is incredibly lightweight and very easy to customize.
+A very simple SourceMod plugin which hands out "Trophies" in the form of post-round chat messages, based on conditions which developers can configure and create. It is incredibly lightweight, very easy to customize, and will work seamlessly with any game mode.
 
 </div>
 
