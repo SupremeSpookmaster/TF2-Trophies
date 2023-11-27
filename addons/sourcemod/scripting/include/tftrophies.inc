@@ -45,3 +45,8 @@ native float TFTrophies_GetArgF(char trophy[255], char arg[255], float defaultVa
  * @return The string value associated with the given trophy and arg, stored in the output buffer. Returns an empty string if no such value is found.
  */
 native void TFTrophies_GetArgS(char trophy[255], char arg[255], char output[255]);
+
+/**
+ * Immediately distributes trophies, regardless of whether the round has ended or not.
+ */
+native void TFTrophies_GiveTrophies();

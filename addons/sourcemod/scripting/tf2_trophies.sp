@@ -26,14 +26,36 @@ GlobalForward g_OnAwarded;
 
 ConfigMap g_TrophiesList;
 
+#define SND_ADMINCOMMAND		"ui/cyoa_ping_in_progress.wav"
+
 public void OnPluginStart()
 {
 	CreateTrophiesList();
 	
 	g_OnAwarded = new GlobalForward("TFTrophies_OnTrophyAwarded", ET_Event, Param_String, Param_CellByRef);
 	
+	RegAdminCmd("givetrophies", GiveThemOut, ADMFLAG_KICK, "TF2 Trophies: Immediately hands out trophies to clients who have earned them.");
+	
 	HookEvent("teamplay_round_win", RoundEnd);
 	HookEvent("teamplay_round_stalemate", RoundEnd);
+}
+
+public void OnMapStart()
+{
+	PrecacheSound(SND_ADMINCOMMAND);
+}
+
+public Action GiveThemOut(int client, int args)
+{	
+	if (client > 0 && client < MaxClients + 1 && IsClientInGame(client))
+	{
+		CPrintToChat(client, "{orange}[TF2 Trophies] {default}Initiating trophy delivery.");
+		EmitSoundToClient(client, SND_ADMINCOMMAND);
+	}	
+	
+	GiveTrophies();
+	
+	return Plugin_Continue;
 }
 
 public void CreateTrophiesList()
@@ -57,11 +79,17 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 	CreateNative("TFTrophies_GetArgI", Native_TFTrophies_GetArgI);
 	CreateNative("TFTrophies_GetArgF", Native_TFTrophies_GetArgF);
 	CreateNative("TFTrophies_GetArgS", Native_TFTrophies_GetArgS);
+	CreateNative("TFTrophies_GiveTrophies", Native_TFTrophies_GiveTrophies);
 	
 	return APLRes_Success;
 }
 
 public void RoundEnd(Event hEvent, const char[] sEvName, bool bDontBroadcast)
+{
+	GiveTrophies();
+}
+
+public void GiveTrophies()
 {
 	ConfigMap trophies = g_TrophiesList.GetSection("trophies");
 	StringMapSnapshot snap = trophies.Snapshot();
@@ -152,4 +180,9 @@ public Native_TFTrophies_GetArgS(Handle plugin, int numParams)
 	g_TrophiesList.Get(path, val, sizeof(val));
 	
 	SetNativeString(3, val, size);
+}
+
+public Native_TFTrophies_GiveTrophies(Handle plugin, int numParams)
+{
+	GiveTrophies();
 }
