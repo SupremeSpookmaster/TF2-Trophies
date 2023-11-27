@@ -19,7 +19,7 @@ A very simple SourceMod plugin which hands out "Trophies" in the form of post-ro
 
 You may have noticed that, despite the Trophy System being installed on your server, it isn't doing anything. This is because you do not have any Trophies currently active. To create a Trophy, simply follow these steps:
 
-1. Create your Trophy templates in data/tf2_trophies(LINK PENDING).
+1. Create your Trophy templates in [data/tf2_trophies.cfg](https://github.com/SupremeSpookmaster/TF2-Trophies/blob/main/addons/sourcemod/data/tf2_trophies.cfg).
 2. Write a basic plugin to track the variables and stats needed for your Trophy to be awarded.
 3. In your Trophy's plugin, use the `TFTrophies_OnTrophyAwarded` forward to make sure your Trophy is awarded to the correct player when the round ends.
 4. Some custom game modes may bypass TF2's vanilla round-end event. In cases like these, simply make sure your game mode calls `TFTrophies_GiveTrophies` in its custom round-end event.
