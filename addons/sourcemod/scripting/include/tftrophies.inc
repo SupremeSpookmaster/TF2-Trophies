@@ -36,7 +36,7 @@ native TFTrophies_GetArgI(char trophy[255], char arg[255], int defaultVal = 0);
 native float TFTrophies_GetArgF(char trophy[255], char arg[255], float defaultVal = 0.0);
 
 /**
- * Retrieves a float value from data/tf2_trophies.cfg, associated with the given trophy.
+ * Retrieves a string value from data/tf2_trophies.cfg, associated with the given trophy.
  *
  * @param trophy			The name of the trophy, IE "My Cool Trophy".
  * @param arg				The name of the arg, IE "my_cool_arg".
