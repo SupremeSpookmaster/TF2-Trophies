@@ -1,6 +1,6 @@
 <div align="center"> <h1>TF2 Trophies</h1>
 
-A very simple SourceMod plugin which hands out "Trophies" in the form of post-round chat messages, based on conditions which developers can configure and create. It is incredibly lightweight and very easy to customize.
+A very simple SourceMod plugin which hands out "Trophies" in the form of post-round chat messages, based on conditions which developers can configure and create. It is incredibly lightweight, very easy to customize, and will work seamlessly with any game mode.
 
 </div>
 
@@ -24,6 +24,6 @@ You may have noticed that, despite the Trophy System being installed on your ser
 3. In your Trophy's plugin, use the `TFTrophies_OnTrophyAwarded` forward to make sure your Trophy is awarded to the correct player when the round ends.
 4. Some custom game modes may bypass TF2's vanilla round-end event. In cases like these, simply make sure your game mode calls `TFTrophies_GiveTrophies` in its custom round-end event.
 
-If you need a point of reference for writing your Trophy's plugin, see the Example Trophy Plugin(LINK PENDING). You may also view the Forwards and Natives page of this GitHub's Wiki for further assistance.
+If you need a point of reference for writing your Trophy's plugin, see the Example Trophy Plugin(LINK PENDING). You may also view the [Developer Forwards and Natives](https://github.com/SupremeSpookmaster/TF2-Trophies/wiki/Developer-Forwards-and-Natives) page of this GitHub's Wiki for further assistance.
 
 </div>
