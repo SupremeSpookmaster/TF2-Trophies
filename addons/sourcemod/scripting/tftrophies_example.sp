@@ -4,7 +4,22 @@
 #define PLUGIN_VERSION        "1.0"
 #define PLUGIN_URL            ""
 
+//This is the name of our Trophy: King of Carnage. It tracks the damage dealt by all players throughout the round, and is awarded to the player who dealt the most damage.
 #define TROPHY_DMG			"King of Carnage"
+
+//This is how King of Carnage looks in data/tf2_trophies.cfg:
+/*
+
+"trophies"
+{
+	"King of Carnage"		//The name of this trophy.
+	{
+		"message"			"{orange}[TF2 Trophies] {crimson}King of Carnage{default} - Awarded to {green}%N{default} for {olive}dealing the most damage{default}."	//Message to print when this trophy is given out.
+		"sound"				"misc/achievement_earned.wav"		//Sound to play when this trophy is awarded.
+	}
+}
+
+*/
 
 #include <sourcemod>
 #include <sdktools>
