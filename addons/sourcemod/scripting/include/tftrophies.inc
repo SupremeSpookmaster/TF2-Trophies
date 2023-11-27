@@ -6,8 +6,8 @@
 /**
  * Called when the Trophy System attempts to hand out a trophy at the end of the round.
  *
- * @param trophy			The name of the trophy, IE "My Cool Trophy".
- * @param winner			The client who should win the trophy. You MUST set this to a valid client if you do not return Plugin_Handled.
+ * @param trophy			The name of the trophy being processed, IE "My Cool Trophy".
+ * @param winner			The client who should win the Trophy. If set to a valid client, that client will be given this Trophy.
  *
  * @return Plugin_Handled or Plugin_Stop to stop the trophy from being awarded, otherwise change "winner" to the client who should win this trophy and return any value other than Plugin_Handled.
  */
@@ -16,7 +16,7 @@ forward Action TFTrophies_OnTrophyAwarded(char trophy[255], int &winner);
 /**
  * Retrieves an int value from data/tf2_trophies.cfg, associated with the given trophy.
  *
- * @param trophy			The name of the trophy, IE "My Cool Trophy".
+ * @param trophy			The name of the trophy to find the arg of, IE "My Cool Trophy".
  * @param arg				The name of the arg, IE "my_cool_arg".
  * @param defaultVal		The default value to be returned if no value is found.
  *
@@ -27,7 +27,7 @@ native TFTrophies_GetArgI(char trophy[255], char arg[255], int defaultVal = 0);
 /**
  * Retrieves a float value from data/tf2_trophies.cfg, associated with the given trophy.
  *
- * @param trophy			The name of the trophy, IE "My Cool Trophy".
+ * @param trophy			The name of the trophy to find the arg of, IE "My Cool Trophy".
  * @param arg				The name of the arg, IE "my_cool_arg".
  * @param defaultVal		The default value to be returned if no value is found.
  *
@@ -38,7 +38,7 @@ native float TFTrophies_GetArgF(char trophy[255], char arg[255], float defaultVa
 /**
  * Retrieves a string value from data/tf2_trophies.cfg, associated with the given trophy.
  *
- * @param trophy			The name of the trophy, IE "My Cool Trophy".
+ * @param trophy			The name of the trophy to find the arg of, IE "My Cool Trophy".
  * @param arg				The name of the arg, IE "my_cool_arg".
  * @param output			Output buffer.
  *

@@ -16,6 +16,7 @@
 
 #Source Code
 !tf2_trophies.sp
+!tftrophies_example.sp
 
 #Include Files
 !tftrophies.inc
