@@ -1,0 +1,8 @@
+"Phrases"
+{
+	"My Trophy"
+	{
+		"#format" "{1:s}"
+		"en"	"{orange}[TF2 Trophies] {gold}My Cool Trophy{default} - Awarded to {green}{1}{default} for {olive}being super cool{default}."
+	}
+}

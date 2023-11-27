@@ -38,6 +38,8 @@ public void OnPluginStart()
 	
 	HookEvent("teamplay_round_win", RoundEnd);
 	HookEvent("teamplay_round_stalemate", RoundEnd);
+	
+	LoadTranslations("tf2_trophies.phrases");
 }
 
 public void OnMapStart()
@@ -96,7 +98,7 @@ public void GiveTrophies()
 	
 	for (int i = snap.Length - 1; i > -1; i--)
 	{
-		char key[255], message[255];
+		char key[255];
 		snap.GetKey(i, key, sizeof(key));
 		
 		int winner = 0;
@@ -111,14 +113,10 @@ public void GiveTrophies()
 		
 		if (result != Plugin_Handled && result != Plugin_Stop && (winner > 0 && winner < MaxClients + 1 && IsClientInGame(winner)))
 		{
-			ConfigMap subsection = trophies.GetSection(key);
-		
-			subsection.Get("message", message, sizeof(message));
-			
 			DataPack pack = new DataPack();
 			CreateDataTimer(0.5, Timer_GiveTrophy, pack, TIMER_FLAG_NO_MAPCHANGE);
 			WritePackCell(pack, GetClientUserId(winner));
-			WritePackString(pack, message);
+			WritePackString(pack, key);
 		}
 	}
 	
@@ -135,7 +133,18 @@ public Action Timer_GiveTrophy(Handle giveit, DataPack pack)
 	ReadPackString(pack, message, 255);
 	
 	if (winner > 0 && winner < MaxClients + 1 && IsClientInGame(winner))
-		CPrintToChatAll(message, winner);
+	{
+		char name[255];
+		GetClientName(winner, name, sizeof(name));
+		
+		for (int client = 1; client <= MaxClients; client++)
+		{
+			if (IsClientInGame(client))
+			{
+				CPrintToChat(client, "%T", message, client, name);
+			}
+		}
+	}
 		
 	return Plugin_Continue;
 }
