@@ -14,8 +14,21 @@
 {
 	"King of Carnage"		//The name of this trophy.
 	{
-		"message"			"{orange}[TF2 Trophies] {crimson}King of Carnage{default} - Awarded to {green}%N{default} for {olive}dealing the most damage{default}."	//Message to print when this trophy is given out.
 		"sound"				"misc/achievement_earned.wav"		//Sound to play when this trophy is awarded.
+	}
+}
+
+*/
+
+//And this is how it would look in translations/tf2_trophies.phrases.txt:
+/*
+
+"Phrases"
+{
+	"King of Carnage"
+	{
+		"#format" "{1:s}"
+		"en"	"{orange}[TF2 Trophies] {corrupted}King of Carnage{default} - Awarded to {green}{1}{default} for {olive}dealing the most damage{default}."
 	}
 }
 
