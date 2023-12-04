@@ -10,7 +10,7 @@ A very simple SourceMod plugin which hands out "Trophies" in the form of post-ro
 
 # *Installation/Update Guide*
 
-1. Download the Latest Release Installation Build (LINK PENDING).
+1. Download the [Latest Release Installation Build](https://github.com/SupremeSpookmaster/TF2-Trophies/releases/tag/V1.0).
 2. Extract the contents of the installation build to your server's `tf/sourcemod` directory.
 3. The Trophy System should now be active on your server.
 4. To update your server's version of the Trophy System, simply repeat these steps with the Latest Release Update Build. Currently, this plugin is version 1.0, so there is no update build.
